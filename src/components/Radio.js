@@ -1,8 +1,7 @@
-export default function Radio({ value, checked, handleRadio }) {
+export default function Radio({ value, handleRadio }) {
   return (
     <>
       <input
-        checked={checked}
         className="radio"
         type="radio"
         name="gender"

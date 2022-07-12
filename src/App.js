@@ -8,7 +8,6 @@ function App() {
   const [data, setData] = useState({});
   const handleSubmit = (data) => {
     setData(data);
-    console.log(data);
   };
   return (
     <div className="App">
