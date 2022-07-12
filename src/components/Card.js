@@ -9,7 +9,7 @@ export default function Card({ data, bgColor }) {
     <div className="card-wrapper c-info">
       <div className="card card-info" style={{ backgroundColor: bgColor }}>
         <div className="card-container">
-          <Subheading value="Subheader" />
+          <Subheading value="Information card" />
           <form id="form">
             <Input
               handleInput={(e) => e.preventDefault}
@@ -61,7 +61,16 @@ export default function Card({ data, bgColor }) {
               data={data.age}
               id="age"
               name="age"
-              $
+            />
+            <Input
+              handleInput={(e) => e.preventDefault}
+              active={false}
+              type="text"
+              label="gender"
+              placeholder="gender"
+              data={data.gender}
+              id="gender"
+              name="gender"
             />
             <Checkbox
               active={true}

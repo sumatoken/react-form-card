@@ -67,6 +67,9 @@ body {
   flex: 1;
   margin-top: -220px;
 }
+.radio {
+  margin-top: 20px;
+}
 .cards-wrapper {
   display: flex;
     padding: 20px;

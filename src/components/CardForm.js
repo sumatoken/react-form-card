@@ -3,6 +3,7 @@ import Button from "./Button";
 import Checkbox from "./Checkbox";
 import Heading from "./Heading";
 import Input from "./Input";
+import Radio from "./Radio";
 import Subheading from "./Subheading";
 
 export default function CardForm({ bgColor, handleSubmit }) {
@@ -12,8 +13,10 @@ export default function CardForm({ bgColor, handleSubmit }) {
   const [favcolor, setFavcolor] = useState("");
   const [age, setAge] = useState("");
   const [notif, setNotif] = useState(false);
+  const [gender, setGender] = useState(null);
+  const [isReset, setIsReset] = useState(false);
   const [ready, setReady] = useState(false);
-  if (name && surname && email && favcolor && age) {
+  if (name && surname && email && favcolor && age && gender) {
     setTimeout(() => {
       setReady(true);
     }, 500);
@@ -23,7 +26,7 @@ export default function CardForm({ bgColor, handleSubmit }) {
     <div className="card-wrapper c-form">
       <div className="card card-form" style={{ backgroundColor: bgColor }}>
         <div className="card-container">
-          <Subheading value="Subheader" />
+          <Subheading value="Form card subheader" />
           <form id="form">
             <Input
               active={true}
@@ -85,6 +88,19 @@ export default function CardForm({ bgColor, handleSubmit }) {
                 setAge(e.target.value);
               }}
             />
+            <Radio
+              value="Male"
+              handleRadio={(e) => {
+                setGender(e.target.value);
+              }}
+            />
+            <Radio
+              value="Female"
+              handleRadio={(e) => {
+                setGender(e.target.value);
+              }}
+            />
+
             <Checkbox
               active={true}
               value="Subscribe for notifications"
@@ -107,13 +123,16 @@ export default function CardForm({ bgColor, handleSubmit }) {
                     favcolor: favcolor,
                     email: email,
                     age: age,
+                    gender: gender,
                     notif: notif,
                   });
                   setAge("");
                   setEmail("");
                   setFavcolor("");
                   setName("");
+                  setGender("");
                   setSurname("");
+                  setIsReset(true);
                   setNotif(false);
                   setReady(false);
                 }}
@@ -130,7 +149,9 @@ export default function CardForm({ bgColor, handleSubmit }) {
                   setFavcolor("");
                   setName("");
                   setSurname("");
+                  setGender("");
                   setNotif(false);
+                  setIsReset(true);
                   setReady(false);
                 }}
               />
